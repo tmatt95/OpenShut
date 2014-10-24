@@ -43,7 +43,10 @@
 		    timeUrl: '',
 		    // A custom function can be used to get the time
 		    timeFunction: function (timeUrl) {
-
+			// Ajax the server
+			
+			// Take the time and convert it to a javascript object
+			// Return javascript object.
 		    },
 		    // status, whether open or closed
 		    status: 'open',
