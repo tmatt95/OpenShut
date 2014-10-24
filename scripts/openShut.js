@@ -1,11 +1,11 @@
-(function($) {
-    $.fn.openShut = function(options) {
+(function ($) {
+    $.fn.openShut = function (options) {
 
 	// Contains all the functions used to run the open shut plugin.
 	var osfunctions = {
 	    // Creates the settings information based on the defaults / settings
 	    // sent in by the user and stores it on the object.
-	    'init': function(e, options) {
+	    'init': function (e, options) {
 		// Contains the defaults which can be overwritten by the
 		// application.
 		var settings = $.extend({
@@ -42,7 +42,7 @@
 		    // Where to get the time from
 		    timeUrl: '',
 		    // A custom function can be used to get the time
-		    timeFunction: function(timeUrl) {
+		    timeFunction: function (timeUrl) {
 
 		    },
 		    // status, whether open or closed
@@ -52,7 +52,10 @@
 		    // Whether the loading text contains contains html.
 		    loadingHtml: false,
 		    // The time the display was genarated at.
-		    timeDateGenerated: null
+		    timeDateGenerated: null,
+		    
+		    // Whether or not to diplay error messages
+		    debug: false
 		}, options);
 
 		// Gets the current date and time
@@ -60,11 +63,12 @@
 	    },
 	    // Gets the current date and time, either from the client or from
 	    // a remote server if specified.
-	    'curDateTimeGet': function(e, settings) {
+	    'curDateTimeGet': function (e, settings) {
 
 		if (settings.timeUrl.length > 0) {
 		    // call the time function to get the current time
 		    settings.timeFunction(settings.timeUrl);
+		    
 		} else {
 		    // Sets the time generated to that of the local machine.
 		    var d = new Date();
@@ -76,7 +80,7 @@
 	    },
 	    // Takes the javascript data time and creates a detailed array
 	    // containing the day of the week etc
-	    'curDateTimeFormat': function(e, settings) {
+	    'curDateTimeFormat': function (e, settings) {
 
 		// Day generated in the curDateTimeGet function
 		var d = settings.timeDateGenerated;
@@ -98,11 +102,11 @@
 		// then we need to set the status to closed. Also override other
 		// settings here as well.
 
-		$(settings.datesClosed).each(function(index) {
+		$(settings.datesClosed).each(function (index) {
 		    // convert to timestamp, use both timestamps to figure out
 		    // wether the date is a closed one.
 //		    console.log(index + ": " + $(this).text());
-console.log(index);
+		    console.log(index);
 		});
 
 		// Used to store the current time (24 hours).
@@ -152,7 +156,7 @@ console.log(index);
 		osfunctions.output(e, settings);
 	    },
 	    '': '',
-	    'output': function(e, settings) {
+	    'output': function (e, settings) {
 
 		// Used to store the html we are outputing to the window.
 		var output = '';
@@ -198,7 +202,7 @@ console.log(index);
 	//    // functions to run.
 	//}
 	if (typeof options === 'object') {
-      // Initiate the object
+	    // Initiate the object
 	    osfunctions.init(this, options);
 	}
 
