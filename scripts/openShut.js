@@ -132,8 +132,6 @@
 		    }
 		});
 		
-		console.log(settings.status);
-
 		// Used to store the current time (24 hours).
 		var curTime = d.getHours() + ':' + d.getMinutes();
 		var curTimeInt = curTime.replace(/:/ig, "");
