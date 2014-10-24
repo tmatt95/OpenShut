@@ -107,13 +107,29 @@
 		// If there are any date ranges which include the current date
 		// then we need to set the status to closed. Also override other
 		// settings here as well.
-
-		$(settings.datesClosed).each(function (index) {
-		    // convert to timestamp, use both timestamps to figure out
-		    // wether the date is a closed one.
-//		    console.log(index + ": " + $(this).text());
-		    console.log(index);
+		$(settings.datesClosed).each(function (index, item) {
+		    // Create date object from date string for from date
+		    var dateClosedFrom = item.start.trim();
+		    var dateClosedFromDate = dateClosedFrom.split(" ")[0].split("/");
+		    var dateClosedFromTime = dateClosedFrom.split(" ")[1].split(":");
+		    var dateClosedFromObj = new Date(dateClosedFromDate[2], dateClosedFromDate[1]- 1, dateClosedFromDate[0], dateClosedFromTime[0], dateClosedFromTime[1], dateClosedFromTime[2], 0);
+		    
+		    // Create date object from date string for to date
+		    var dateClosedTo = item.end.trim();
+		    var dateClosedToDate = dateClosedTo.split(" ")[0].split("/");
+		    var dateClosedToTime = dateClosedTo.split(" ")[1].split(":");
+		    var dateClosedToObj = new Date(dateClosedToDate[2], dateClosedToDate[1]- 1, dateClosedToDate[0], dateClosedToTime[0], dateClosedToTime[1], dateClosedToTime[2], 0);
+		    
+		    if(d.getTime() > dateClosedFromObj.getTime() && d.getTime() < dateClosedToObj.getTime()){
+			
+			// Sets the item to closed.
+			settings.status = 'closed';
+			
+			// Override the closed message here.
+		    }
 		});
+		
+		console.log(settings.status);
 
 		// Used to store the current time (24 hours).
 		var curTime = d.getHours() + ':' + d.getMinutes();
@@ -146,18 +162,7 @@
 		if (curTimeInt > closedInt) {
 		    settings.status = 'closed';
 		}
-//
-//		// Adds the cur days opening/closing times to the element. May
-//		// be over ridden if there are any dates closed,
-//		e.data('openCloseTimes', settings.days[curDay]);
-//
-//		// Puts the loading message onto the screen.
-//		if (settings.textHtml === true) {
-//		    e.html(settings.loadingText);
-//		} else {
-//		    e.text(settings.loadingText);
-//		}
-//
+
 		// Output the info.
 		osfunctions.output(e, settings);
 	    },
@@ -170,7 +175,7 @@
 		// This will contain the content based on whether we have
 		// decided to show an open or a closed.
 		var outputContent = '';
-
+		
 		// gets the output text
 		if (settings.status === 'open') {
 		    outputContent = settings.textOpen;
