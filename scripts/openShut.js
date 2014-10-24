@@ -68,7 +68,6 @@
 		if (settings.timeUrl.length > 0) {
 		    // call the time function to get the current time
 		    settings.timeFunction(settings.timeUrl);
-		    
 		} else {
 		    // Sets the time generated to that of the local machine.
 		    var d = new Date();
@@ -76,6 +75,13 @@
 
 		    // Calls the function to format the date / time
 		    osfunctions.curDateTimeFormat(e, settings);
+		    
+		    if(settings.debug === true){
+			var wmess = 'Warning: The correct information cannot be ';
+			wmess = wmess + 'garunteed with the plugin set to use the';
+			wmess = wmess + ' time on the viewers computer.';
+			alert(wmess);
+		    }
 		}
 	    },
 	    // Takes the javascript data time and creates a detailed array
