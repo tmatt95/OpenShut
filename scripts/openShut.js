@@ -129,6 +129,9 @@
 			settings.status = 'closed';
 			
 			// Override the closed message here.
+			// By checking if the closed message is present and
+			// if the type is present and set to true then set it as
+			// well.
 		    }
 		});
 		
