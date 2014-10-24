@@ -6,7 +6,7 @@
 	    // Creates the settings information based on the defaults / settings
 	    // sent in by the user and stores it on the object.
 	    'init': function(e, options) {
-		// Contains the defaults which can be overwritten by the 
+		// Contains the defaults which can be overwritten by the
 		// application.
 		var settings = $.extend({
 		    // Whether the output of the text contains html.
@@ -30,7 +30,7 @@
 		    // The dates that the place is shut.
 		    datesClosed: [
 //			{
-//			    // start and end closed range 
+//			    // start and end closed range
 //			    'start': 'DD/MM/YYY HH:MM:SS',
 //			    'end': 'DD/MM/YYY HH:MM:SS',
 //			    // Closed text
@@ -74,8 +74,8 @@
 		    osfunctions.curDateTimeFormat(e, settings);
 		}
 	    },
-	    // Takes the javascript data time and creates a detailed array 
-	    // containing the day of the week etc 
+	    // Takes the javascript data time and creates a detailed array
+	    // containing the day of the week etc
 	    'curDateTimeFormat': function(e, settings) {
 
 		// Day generated in the curDateTimeGet function
@@ -99,7 +99,7 @@
 		// settings here as well.
 
 		$(settings.datesClosed).each(function(index) {
-		    // convert to timestamp, use both timestamps to figure out 
+		    // convert to timestamp, use both timestamps to figure out
 		    // wether the date is a closed one.
 //		    console.log(index + ": " + $(this).text());
 console.log(index);
@@ -116,9 +116,9 @@ console.log(index);
 		var open = todayTimesBase.open;
 		var closed = todayTimesBase.closed;
 
-		// Now we have the time set up in the open and closed variables 
-		// and the current time we can look to see if the current time 
-		// falls inide the range and set the settings.status 
+		// Now we have the time set up in the open and closed variables
+		// and the current time we can look to see if the current time
+		// falls inide the range and set the settings.status
 		// accordingly.
 		var openInt = open.replace(/:/ig, "");
 		var closedInt = closed.replace(/:/ig, "");
@@ -136,11 +136,11 @@ console.log(index);
 		if (curTimeInt > closedInt) {
 		    settings.status = 'closed';
 		}
-//		
-//		// Adds the cur days opening/closing times to the element. May 
+//
+//		// Adds the cur days opening/closing times to the element. May
 //		// be over ridden if there are any dates closed,
 //		e.data('openCloseTimes', settings.days[curDay]);
-//		
+//
 //		// Puts the loading message onto the screen.
 //		if (settings.textHtml === true) {
 //		    e.html(settings.loadingText);
@@ -157,18 +157,18 @@ console.log(index);
 		// Used to store the html we are outputing to the window.
 		var output = '';
 
-		// This will contain the content based on whether we have 
+		// This will contain the content based on whether we have
 		// decided to show an open or a closed.
 		var outputContent = '';
 
-		// gets the output text 
+		// gets the output text
 		if (settings.status === 'open') {
 		    outputContent = settings.textOpen;
 		} else {
 		    outputContent = settings.textClosed;
 		}
 
-		// Joins the content and the container together to get the 
+		// Joins the content and the container together to get the
 		// finished output string.
 		output = settings.container.replace('{text}', outputContent);
 
@@ -192,12 +192,13 @@ console.log(index);
 	// First we check what type of variable the options is. If it is a
 	// string then we are calling a function on a openShut object which has
 	// allready been set up. If it is a object then we are setting it up.
-	if (typeof options === 'string') {
-	    // Gets the settings from the object.
-	    var settings = this.data('openCloseTimes');
-	    // functions to run.
-	}
+	//if (typeof options === 'string') {
+	//    // Gets the settings from the object.
+	//   var settings = this.data('openCloseTimes');
+	//    // functions to run.
+	//}
 	if (typeof options === 'object') {
+      // Initiate the object
 	    osfunctions.init(this, options);
 	}
 
