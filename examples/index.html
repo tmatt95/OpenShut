@@ -82,19 +82,19 @@ and open the template in the editor.
 		    <pre class="pre-scrollable">
 &lt;div id="basicos"&gt;&lt;/div&gt;
 &lt;script type="text/javascript"&gt;
-$('#basicos').openShut(
-    {
-	'days': {
-	    'monday': {'open': '00:00', 'closed': '00:00'},
-	    'tuesday': {'open': '00:00', 'closed': '00:00'},
-	    'wednesday': {'open': '00:00', 'closed': '00:00'},
-	    'thursday': {'open': '00:00', 'closed': '00:00'},
-	    'friday': {'open': '01:00', 'closed': '23:00'},
-	    'saturday': {'open': '07:00', 'closed': '16:00'},
-	    'sunday': {'open': '00:00', 'closed': '00:00'}
+    $('#basicos').openShut(
+	{
+	    'days': {
+		'monday': {'open': '00:00', 'closed': '00:00'},
+		'tuesday': {'open': '00:00', 'closed': '00:00'},
+		'wednesday': {'open': '00:00', 'closed': '00:00'},
+		'thursday': {'open': '00:00', 'closed': '00:00'},
+		'friday': {'open': '01:00', 'closed': '23:00'},
+		'saturday': {'open': '07:00', 'closed': '16:00'},
+		'sunday': {'open': '00:00', 'closed': '00:00'}
+	    }
 	}
-    }
-);
+    );
 &lt;/script&gt;
 		    </pre>
 
@@ -103,25 +103,25 @@ $('#basicos').openShut(
 		    <pre class="pre-scrollable">
 &lt;div id="excludeddates"&gt;&lt;/div&gt;
 &lt;script type="text/javascript"&gt;
-$('#excludeddates').openShut(
-    {
-	'days': {
-	    'monday': {'open': '00:00', 'closed': '00:00'},
-	    'tuesday': {'open': '00:00', 'closed': '00:00'},
-	    'wednesday': {'open': '00:00', 'closed': '00:00'},
-	    'thursday': {'open': '00:00', 'closed': '00:00'},
-	    'friday': {'open': '01:00', 'closed': '23:00'},
-	    'saturday': {'open': '07:00', 'closed': '16:00'},
-	    'sunday': {'open': '00:00', 'closed': '00:00'}
-	},
-	datesClosed: [
-	    {
-		'start': '22/01/2014 12:00:00',
-		'end': '12/12/2014 23:59:59'
-	    }
-	],
-    }
-);
+    $('#excludeddates').openShut(
+	{
+	    'days': {
+		'monday': {'open': '00:00', 'closed': '00:00'},
+		'tuesday': {'open': '00:00', 'closed': '00:00'},
+		'wednesday': {'open': '00:00', 'closed': '00:00'},
+		'thursday': {'open': '00:00', 'closed': '00:00'},
+		'friday': {'open': '01:00', 'closed': '23:00'},
+		'saturday': {'open': '07:00', 'closed': '16:00'},
+		'sunday': {'open': '00:00', 'closed': '00:00'}
+	    },
+	    datesClosed: [
+		{
+		    'start': '22/01/2014 12:00:00',
+		    'end': '12/12/2014 23:59:59'
+		}
+	    ],
+	}
+    );
 &lt;/script&gt;
 		    </pre>
 
