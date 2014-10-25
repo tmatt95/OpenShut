@@ -36,10 +36,6 @@
 		    ],
 		    // status, whether open or closed
 		    status: 'open',
-		    // Enables ypou to set a message when the widget is loading.
-		    loadingText: '',
-		    // Whether the loading text contains contains html.
-		    loadingHtml: false,
 		    // The time the display was genarated at.
 		    timeDateGenerated: null,		    
 		}, options);
