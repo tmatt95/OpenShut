@@ -1,6 +1,5 @@
 (function ($) {
     $.fn.openShut = function (options) {
-
 	// Contains all the functions used to run the open shut plugin.
 	var osfunctions = {
 	    // Creates the settings information based on the defaults / settings
@@ -32,33 +31,13 @@
 //			{
 //			    // start and end closed range
 //			    'start': 'DD/MM/YYY HH:MM:SS',
-//			    'end': 'DD/MM/YYY HH:MM:SS',
-//			    // Closed text
-//			    'textClosed': 'Happy Christmas',
-//			    // Whether to display the text closed as html
-//			    'textHtml': false
+//			    'end': 'DD/MM/YYY HH:MM:SS'
 //			}
 		    ],
-		    // Where to get the time from
-		    timeUrl: '',
-		    // A custom function can be used to get the time
-		    timeFunction: function (timeUrl) {
-			// Ajax the server
-			
-			// Take the time and convert it to a javascript object
-			// Return javascript object.
-		    },
 		    // status, whether open or closed
 		    status: 'open',
-		    // Enables ypou to set a message when the widget is loading.
-		    loadingText: '',
-		    // Whether the loading text contains contains html.
-		    loadingHtml: false,
 		    // The time the display was genarated at.
-		    timeDateGenerated: null,
-		    
-		    // Whether or not to diplay error messages
-		    debug: false
+		    timeDateGenerated: null,		    
 		}, options);
 
 		// Gets the current date and time
@@ -68,24 +47,12 @@
 	    // a remote server if specified.
 	    'curDateTimeGet': function (e, settings) {
 
-		if (settings.timeUrl.length > 0) {
-		    // call the time function to get the current time
-		    settings.timeFunction(settings.timeUrl);
-		} else {
-		    // Sets the time generated to that of the local machine.
-		    var d = new Date();
-		    settings.timeDateGenerated = d;
+		// Sets the time generated to that of the local machine.
+		var d = new Date();
+		settings.timeDateGenerated = d;
 
-		    // Calls the function to format the date / time
-		    osfunctions.curDateTimeFormat(e, settings);
-		    
-		    if(settings.debug === true){
-			var wmess = 'Warning: The correct information cannot be ';
-			wmess = wmess + 'garunteed with the plugin set to use the';
-			wmess = wmess + ' time on the viewers computer.';
-			alert(wmess);
-		    }
-		}
+		// Calls the function to format the date / time
+		osfunctions.curDateTimeFormat(e, settings);
 	    },
 	    // Takes the javascript data time and creates a detailed array
 	    // containing the day of the week etc
@@ -94,6 +61,7 @@
 		// Day generated in the curDateTimeGet function
 		var d = settings.timeDateGenerated;
 
+		// Contains the days of the week
 		var weekday = new Array(7);
 		weekday[0] = "sunday";
 		weekday[1] = "monday";
@@ -164,7 +132,6 @@
 		// Output the info.
 		osfunctions.output(e, settings);
 	    },
-	    '': '',
 	    'output': function (e, settings) {
 
 		// Used to store the html we are outputing to the window.
@@ -197,23 +164,9 @@
 		e.data('openCloseSettings', settings);
 	    }
 	};
-
-	// ---------------------------------------------------------------------
-	// CONTROLLER SECTION
-	// ---------------------------------------------------------------------
-
-	// First we check what type of variable the options is. If it is a
-	// string then we are calling a function on a openShut object which has
-	// allready been set up. If it is a object then we are setting it up.
-	//if (typeof options === 'string') {
-	//    // Gets the settings from the object.
-	//   var settings = this.data('openCloseTimes');
-	//    // functions to run.
-	//}
-	if (typeof options === 'object') {
-	    // Initiate the object
-	    osfunctions.init(this, options);
-	}
+	    
+	// Starts the function running.
+	osfunctions.init(this, options);
 
 	// At the end we want to return the object back out.
 	return this;
