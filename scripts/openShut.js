@@ -124,14 +124,8 @@
 		    var dateClosedToObj = new Date(dateClosedToDate[2], dateClosedToDate[1]- 1, dateClosedToDate[0], dateClosedToTime[0], dateClosedToTime[1], dateClosedToTime[2], 0);
 		    
 		    if(d.getTime() > dateClosedFromObj.getTime() && d.getTime() < dateClosedToObj.getTime()){
-			
 			// Sets the item to closed.
 			settings.status = 'closed';
-			
-			// Override the closed message here.
-			// By checking if the closed message is present and
-			// if the type is present and set to true then set it as
-			// well.
 		    }
 		});
 		
