@@ -19,7 +19,7 @@
 		    // The days of the week and when it is open / closed
 		    'days': {
 			'monday': {'open': '00:00', 'closed': '00:00'},
-			'teusday': {'open': '00:00', 'closed': '00:00'},
+			'tuesday': {'open': '00:00', 'closed': '00:00'},
 			'wednesday': {'open': '00:00', 'closed': '00:00'},
 			'thursday': {'open': '00:00', 'closed': '00:00'},
 			'friday': {'open': '00:00', 'closed': '00:00'},
