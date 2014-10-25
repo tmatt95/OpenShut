@@ -65,6 +65,7 @@
 		// Day generated in the curDateTimeGet function
 		var d = settings.timeDateGenerated;
 
+		// Contains the days of the week
 		var weekday = new Array(7);
 		weekday[0] = "sunday";
 		weekday[1] = "monday";
