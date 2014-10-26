@@ -9,4 +9,4 @@ background: linear-gradient(to bottom, rgba(237,237,237,1) 0%, rgba(246,246,246,
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ededed', endColorstr='#ffffff', GradientType=0 );
 }
 .containermain{background: none repeat scroll 0% 0% white; margin-top: 30px;border-radius:4px 4px 4px 4px;margin-bottom:20px;border: 1px solid #ddd;}
-html{height: 100%;}
+html{min-height: 100%;}
