@@ -6,97 +6,43 @@ and open the template in the editor.
 -->
 <html>
     <head>
-	<title>Open Shut Example</title>
+	<title>Open Shut</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width">
 	<link rel="stylesheet" href="../scripts/bootstrap-3.2.0-dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="../scripts/bootstrap-3.2.0-dist/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" href="os.css">
     </head>
     <body>
-	<div class="container">
+
+	<div class="container containermain">
+
 	    <div class="row">
-		<div class="col-md-12">
-		    <h2>Examples</h2>
-		    <h3>Basic Usage</h3>
-		    <h3>Options</h3>
-		    <table class="table-bordered table">
-			<thead>
-			    <tr>
-				<th>Name</th>
-				<th>Type</th>
-				<th>Default</th>
-				<th>Description</th>
-			    </tr>
-			</thead>
-			<tbody>
-			    <tr>
-				<td>container</td>
-				<td>Text</td>
-				<td><pre>'{text}'</pre></td>
-				<td>The container that contains the status</td>
-			    </tr>
-			    <tr>
-				<td>days</td>
-				<td>Object</td>
-				<td>
-				    <pre>
-{
-    'monday': {'open': '00:00', 'closed': '00:00'},
-    'tuesday': {'open': '00:00', 'closed': '00:00'},
-    'wednesday': {'open': '00:00', 'closed': '00:00'},
-    'thursday': {'open': '00:00', 'closed': '00:00'},
-    'friday': {'open': '00:00', 'closed': '00:00'},
-    'saturday': {'open': '07:00', 'closed': '16:00'},
-    'sunday': {'open': '00:00', 'closed': '00:00'}
-}</pre>
-				</td>
-				<td>The days of the week and when it is open / closed</td>
-			    </tr>
-			    <tr>
-				<td>datesClosed</td>
-				<td>object</td>
-				<td><pre>[]</pre></td>
-				<td>The dates that the place is shut</td>
-			    </tr>
-			    <tr>
-				<td>status</td>
-				<td>Text</td>
-				<td><pre>'open'</pre></td>
-				<td>Status, whether open or closed</td>
-			    </tr>
-			    <tr>
-				<td>textHtml</td>
-				<td>Boolean</td>
-				<td><pre>false</pre></td>
-				<td>Whether the output of the text contains html</td>
-			    </tr>
-			    <tr>
-				<td>textOpen</td>
-				<td>Text</td>
-				<td><pre>'Open'</pre></td>
-				<td>Default text for when open</td>
-			    </tr>
-			    <tr>
-				<td>textClosed</td>
-				<td>Text</td>
-				<td><pre>'Closed'</pre></td>
-				<td>Default text for when closed</td>
-			    </tr>
-			    <tr>
-				<td>timeDateGenerated</td>
-				<td>Date</td>
-				<td><pre>null</pre></td>
-				<td>The time at which the display was generated</td>
-			    </tr>
-			</tbody>
-		    </table>
+		<div class="col-xs-6">
+		    <h1>OpenShut</h1>
+		</div>
+		<div class="col-xs-6">
+		    <a href="https://github.com/tmatt95/OpenShut" style="margin-top: 19px;" class="btn btn-success pull-right"><span class="glyphicon glyphicon-download-alt"></span> Download V1 (stable)</a>
 		</div>
 	    </div>
-	    <div class="row">
-		<div class="col-md-8">
-		    <p>Shows the plugin running with only the required settings.</p>
-		    <div id="basicos"></div>
-		    <pre class="pre-scrollable">
+
+	    <img src="headimg.jpg" class="img-responsive" alt="Project image" style="margin-bottom:20px;"/>
+
+	    <!-- Nav tabs -->
+	    <ul class="nav nav-tabs" role="tablist">
+		<li class="active"><a href="#examples" role="tab" data-toggle="tab">Examples</a></li>
+		<li><a href="#options" role="tab" data-toggle="tab">Options</a></li>
+	    </ul>
+
+	    <!-- Tab panes -->
+	    <div class="tab-content">
+		<div class="tab-pane active" id="examples">
+		    <div class="row">
+			<div class="col-md-12">
+			    <h3>Basic Usage</h3>
+			    <p>Shows the plugin running with only the required settings.</p>
+			    <div id="basicos"></div>
+			    <pre class="pre-scrollable">
 &lt;div id="basicos"&gt;&lt;/div&gt;
 &lt;script type="text/javascript"&gt;
     $('#basicos').openShut(
@@ -112,12 +58,10 @@ and open the template in the editor.
 	    }
 	}
     );
-&lt;/script&gt;
-		    </pre>
-
-		    <h3>Excluded Dates</h3>
-		    <div id="excludeddates"></div>
-		    <pre class="pre-scrollable">
+&lt;/script&gt;</pre>
+			    <h3>Excluded Dates</h3>
+			    <div id="excludeddates"></div>
+			    <pre class="pre-scrollable">
 &lt;div id="excludeddates"&gt;&lt;/div&gt;
 &lt;script type="text/javascript"&gt;
     $('#excludeddates').openShut(
@@ -139,49 +83,127 @@ and open the template in the editor.
 	    ],
 	}
     );
-&lt;/script&gt;
-		    </pre>
-
-		    <script src="../scripts/jquery-1.11.1.min.js"></script>
-		    <script src="../scripts/openShut.js"></script>
-		    <script src="../scripts/bootstrap-3.2.0-dist/js/bootstrap.min.js"></script>
-		    <script type="text/javascript">
-			$('#basicos').openShut(
-				{
-				    'days': {
-					'monday': {'open': '00:00', 'closed': '00:00'},
-					'tuesday': {'open': '00:00', 'closed': '00:00'},
-					'wednesday': {'open': '00:00', 'closed': '00:00'},
-					'thursday': {'open': '00:00', 'closed': '00:00'},
-					'friday': {'open': '01:00', 'closed': '23:00'},
-					'saturday': {'open': '07:00', 'closed': '16:00'},
-					'sunday': {'open': '00:00', 'closed': '00:00'}
-				    }
-				}
-			);
-
-			$('#excludeddates').openShut(
-				{
-				    'days': {
-					'monday': {'open': '00:00', 'closed': '00:00'},
-					'tuesday': {'open': '00:00', 'closed': '00:00'},
-					'wednesday': {'open': '00:00', 'closed': '00:00'},
-					'thursday': {'open': '00:00', 'closed': '00:00'},
-					'friday': {'open': '01:00', 'closed': '23:00'},
-					'saturday': {'open': '07:00', 'closed': '16:00'},
-					'sunday': {'open': '00:00', 'closed': '00:00'}
-				    },
-				    datesClosed: [
-					{
-					    'start': '22/01/2014 12:00:00',
-					    'end': '12/12/2014 23:59:59'
-					}
-				    ]
-				}
-			);
-		    </script>
+&lt;/script&gt;</pre>
+			</div>
+		    </div>
+		</div>
+		<div class="tab-pane" id="options">
+		    <div class="row">
+			<div class="col-md-12">
+			    <h3>Options</h3>
+			    <table class="table-bordered table">
+				<thead>
+				    <tr>
+					<th>Name</th>
+					<th>Type</th>
+					<th>Default</th>
+					<th>Description</th>
+				    </tr>
+				</thead>
+				<tbody>
+				    <tr>
+					<td>container</td>
+					<td>Text</td>
+					<td><pre>'{text}'</pre></td>
+					<td>The container that contains the status</td>
+				    </tr>
+				    <tr>
+					<td>days</td>
+					<td>Object</td>
+					<td>
+					    <pre>
+{
+    'monday': {'open': '00:00', 'closed': '00:00'},
+    'tuesday': {'open': '00:00', 'closed': '00:00'},
+    'wednesday': {'open': '00:00', 'closed': '00:00'},
+    'thursday': {'open': '00:00', 'closed': '00:00'},
+    'friday': {'open': '00:00', 'closed': '00:00'},
+    'saturday': {'open': '07:00', 'closed': '16:00'},
+    'sunday': {'open': '00:00', 'closed': '00:00'}
+}</pre>
+					</td>
+					<td>The days of the week and when it is open / closed</td>
+				    </tr>
+				    <tr>
+					<td>datesClosed</td>
+					<td>object</td>
+					<td><pre>[]</pre></td>
+					<td>The dates that the place is shut</td>
+				    </tr>
+				    <tr>
+					<td>status</td>
+					<td>Text</td>
+					<td><pre>'open'</pre></td>
+					<td>Status, whether open or closed</td>
+				    </tr>
+				    <tr>
+					<td>textHtml</td>
+					<td>Boolean</td>
+					<td><pre>false</pre></td>
+					<td>Whether the output of the text contains html</td>
+				    </tr>
+				    <tr>
+					<td>textOpen</td>
+					<td>Text</td>
+					<td><pre>'Open'</pre></td>
+					<td>Default text for when open</td>
+				    </tr>
+				    <tr>
+					<td>textClosed</td>
+					<td>Text</td>
+					<td><pre>'Closed'</pre></td>
+					<td>Default text for when closed</td>
+				    </tr>
+				    <tr>
+					<td>timeDateGenerated</td>
+					<td>Date</td>
+					<td><pre>null</pre></td>
+					<td>The time at which the display was generated</td>
+				    </tr>
+				</tbody>
+			    </table>
+			</div>
+		    </div>
 		</div>
 	    </div>
 	</div>
+	<script src="../scripts/jquery-1.11.1.min.js"></script>
+	<script src="../scripts/openShut.js"></script>
+	<script src="../scripts/bootstrap-3.2.0-dist/js/bootstrap.min.js"></script>
+	<script type="text/javascript">
+	    $('#basicos').openShut(
+		    {
+			'days': {
+			    'monday': {'open': '00:00', 'closed': '00:00'},
+			    'tuesday': {'open': '00:00', 'closed': '00:00'},
+			    'wednesday': {'open': '00:00', 'closed': '00:00'},
+			    'thursday': {'open': '00:00', 'closed': '00:00'},
+			    'friday': {'open': '01:00', 'closed': '23:00'},
+			    'saturday': {'open': '07:00', 'closed': '16:00'},
+			    'sunday': {'open': '00:00', 'closed': '00:00'}
+			}
+		    }
+	    );
+
+	    $('#excludeddates').openShut(
+		    {
+			'days': {
+			    'monday': {'open': '00:00', 'closed': '00:00'},
+			    'tuesday': {'open': '00:00', 'closed': '00:00'},
+			    'wednesday': {'open': '00:00', 'closed': '00:00'},
+			    'thursday': {'open': '00:00', 'closed': '00:00'},
+			    'friday': {'open': '01:00', 'closed': '23:00'},
+			    'saturday': {'open': '07:00', 'closed': '16:00'},
+			    'sunday': {'open': '00:00', 'closed': '00:00'}
+			},
+			datesClosed: [
+			    {
+				'start': '22/01/2014 12:00:00',
+				'end': '12/12/2014 23:59:59'
+			    }
+			]
+		    }
+	    );
+	</script>
     </body>
 </html>
